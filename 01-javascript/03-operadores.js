@@ -66,3 +66,14 @@ const respuestaFind  = arreglo.find(
 );
 
 console.log('respuestaFind', respuestaFind) //Resp: Cristian; si no encuentra devuelve undefined
+
+//findindex
+//enviamos una expresión -> Truty Falsy
+//devuelve el primero que cumpla esa condición
+const respuestaIndex  = arreglo.findIndex(
+    function (valorActual, indiceActual, arregloCompleto){
+        return valorActual.nombre === "Cristian"; //EXPRESION ===
+    }
+);
+
+console.log('respuestaIndex', respuestaIndex) //Resp: indice 6; si no encuentra devuelve -1
