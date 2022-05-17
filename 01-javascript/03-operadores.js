@@ -71,7 +71,7 @@ console.log('respuestaFind', respuestaFind) //Resp: Cristian; si no encuentra de
 //enviamos una expresión -> Truty Falsy
 //devuelve el primero que cumpla esa condición
 const respuestaIndex  = arreglo.findIndex(
-    function (valorActual, indiceActual, arregloCompleto){
+    function (valorActual, indiceActual, arregloCompleto){ //indiceActual y arregloCompleto se pueden quitar
         return valorActual.nombre === "Cristian"; //EXPRESION ===
     }
 );
