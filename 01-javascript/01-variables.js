@@ -155,3 +155,14 @@ console.log(notasSegundoBimestre);
 notas.total = notas.total + 1;
 console.log(notas);
 console.log(notasSegundoBimestre);
+
+//como clonar objetos
+let notasTercerBimestre = Object.assign({}, notas);
+//como clonar con arreglos Object.assign([], arreglo);
+notasTercerBimestre.total = notasTercerBimestre.total + 1;
+console.log('notas', notas);
+console.log(notasSegundoBimestre);
+console.log(notasTercerBimestre);
+
+
+
