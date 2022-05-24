@@ -27,3 +27,16 @@ let funcionSinNombre3= function(){};
 //funciones anonimas (flecha gorda) - fat arrow function
 var funcionFlechaGorda1 = () => {};
 let funcionFlechaGorda2= () => {};
+
+function sumarNumeros(...otrosNumeros){//Parámetros Infinitos [2, 3, 4, 5, ...]
+     let total = 0;
+     otrosNumeros.forEach(
+        (valorActual) => {
+            total = total + valorActual;
+        }
+     );
+     return total;
+
+     //return otrosNumeros.reduce((a,v) => a + v, 0);
+}
+sumarNumeros(1,2,3,4,5,6,7,8,9,10,11,12,13)
