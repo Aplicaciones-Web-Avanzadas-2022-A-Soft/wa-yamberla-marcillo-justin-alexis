@@ -89,6 +89,7 @@ if(undefined){
 // 1) "const"
 // 2) "let"
 // 3) X -> "var"
+
 // Objetos Js (JSON)
 const adrian = {
     "nombre": "Adrian", // llave: valor,
