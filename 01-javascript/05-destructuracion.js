@@ -26,3 +26,7 @@ const superArreglo = [
 ];
 console.log('superArreglo', superArreglo);
 console.log(...superArreglo); //console.log(1,2,3,4,5...,10);
+console.log(1,2,3);
+console.log(1);
+console.log(2);
+console.log(3);
