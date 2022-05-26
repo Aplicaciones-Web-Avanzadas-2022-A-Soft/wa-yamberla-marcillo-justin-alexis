@@ -1,8 +1,8 @@
 const fs = require('fs'); //file system: Importar módulo
 
 //06-ejemplo.txt -> Hola
-
-/*console.log('PRIMERO');
+/*
+console.log('PRIMERO');
 
 fs.readFile(
     './06-ejemplo.txt', //Nombre del archivo

@@ -19,14 +19,10 @@ console.log('adrianCarolina', adrianCarolina);
 
 //Destructuracion de arreglos
 const arregloUno = [1, 2, 3, 4, 5];
-const arrelogDos = [6, 7, 8, 9, 10];
+const arregloDos = [6, 7, 8, 9, 10];
 const superArreglo = [
     ...arregloUno, // El orden importa
     ...arregloDos,
 ];
 console.log('superArreglo', superArreglo);
 console.log(...superArreglo); //console.log(1,2,3,4,5...,10);
-console.log(1,2,3);
-console.log(1);
-console.log(2);
-console.log(3);

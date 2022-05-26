@@ -20,7 +20,7 @@ function promesaEsPar(numero){
     return miPrimeraPromesa
 }
 
-promesaEsPar(20)
+promesaEsPar(21)
 .then( //return
     (respuesta) =>{
         console.log("Respuesta: ", respuesta)
