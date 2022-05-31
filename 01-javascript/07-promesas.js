@@ -20,12 +20,27 @@ function promesaEsPar(numero){
     return miPrimeraPromesa
 }
 
-promesaEsPar(21)
+function promesaElevarAlCuadrado(numero) {
+    const miPrimerPromesa = new Promise( // Definicion de la promesa
+        (resolve, reject) => {
+            const numeroElevadoAlCuadrado = Math.pow(numero, 2);
+            resolve(numeroElevadoAlCuadrado); // return numeroElevadoAlCuadrado
+        }
+    );
+    return miPrimerPromesa
+}
+
+promesaEsPar(4)
 .then( //return
-    (respuesta) =>{
-        console.log("Respuesta: ", respuesta)
+    (numeroPar)=>{
+        return promesaElevarAlCuadrado(numeroPar)// OTRA PROMESA
     }
 )
+    .then( //return
+        (numeroParElevadoAlCuadrado)=>{
+            console.log('numeroParElevadoAlCuadrado', numeroParElevadoAlCuadrado)
+        }
+    )
 .catch( //throw
     (error) =>{
         console.error('Error: ', error)
