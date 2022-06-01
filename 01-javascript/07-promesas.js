@@ -31,23 +31,23 @@ function promesaElevarAlCuadrado(numero) {
 }
 
 promesaEsPar(4)
-.then( //return
-    (numeroPar)=>{
-        return promesaElevarAlCuadrado(numeroPar)// OTRA PROMESA
-    }
-)
+    .then( //return
+        (numeroPar)=>{
+            return promesaElevarAlCuadrado(numeroPar)// OTRA PROMESA
+        }
+    )
     .then( //return
         (numeroParElevadoAlCuadrado)=>{
             console.log('numeroParElevadoAlCuadrado', numeroParElevadoAlCuadrado)
         }
     )
-.catch( //throw
-    (error) =>{
-        console.error('Error: ', error)
-    }
-)
-.finally( //finally
-    ()=>{
-        console.info('Fin');
-    }
-)
+    .catch( //throw
+        (error) =>{
+            console.error('Error: ', error)
+        }
+    )
+    .finally( //finally
+        ()=>{
+            console.info('Fin');
+        }
+    )

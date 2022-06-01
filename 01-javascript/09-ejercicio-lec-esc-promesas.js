@@ -88,7 +88,7 @@ function ejercicio(pathUno, pathDos, pathTres) {
 async function ejecutarPromesasAsyncAwait(pathUno, pathDos, pathTres) {
     try {
         const primerContenido = await promesaLectura(pathUno);
-        const segundoContenido = await promesaLectura(pathUno);
+        const segundoContenido = await promesaLectura(pathDos);
         await promesaEscritura(pathTres, primerContenido + segundoContenido);
     } catch (error) {
         console.error(error);
