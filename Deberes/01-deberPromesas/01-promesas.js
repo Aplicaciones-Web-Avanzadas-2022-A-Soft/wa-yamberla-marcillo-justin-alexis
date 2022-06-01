@@ -49,13 +49,13 @@ function ejercicio(
 }
 
 ejercicio('archivo1.txt', 'archivo2.txt', 'nuevoArchivo.txt')
-.then(
-    respuesta => {
-        console.log(respuesta);
-    }
-)
-.catch(
-    error => {
-        console.log(error);
-    }
-)
+    .then(
+        respuesta => {
+            console.log(respuesta);
+        }
+    )
+    .catch(
+        error => {
+            console.log(error);
+        }
+    )
