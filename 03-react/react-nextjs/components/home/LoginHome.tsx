@@ -1,12 +1,8 @@
-/*const LoginHome = () => (
-    <>
-        <h1>Login Home</h1>
-    </>
-)
-
-export default LoginHome*/
+import styles from './login-home.module.css'
 
 interface LoginProperties{
+    color: string;
+    backgroundColor: string;
     propiedadesImagen: {
         width: number;
         height: number;
@@ -22,6 +18,11 @@ type LoginPropertiesType = {
 }
 
 const LoginHome = (props: LoginProperties) => {
+    const misEstilos = {
+        color: props.color,
+        backgroundColor: props.backgroundColor,
+        borderBottom: '5px solid brown',
+    };
     // const propiedadesImagen = {
     //     width: 800,
     //     height: 400,
@@ -29,7 +30,9 @@ const LoginHome = (props: LoginProperties) => {
     // };
     return (
         <>
-            <h1>Login Home</h1>
+            <h1 style={ misEstilos }> Login Home</h1>
+            <h2 className={styles.azul}>AZUL</h2>
+            <h2 className={styles.rojo}>ROJO</h2>
             <img src={props.propiedadesImagen.urlImagen}
                 width={props.propiedadesImagen.width}
                 height={props.propiedadesImagen.height}

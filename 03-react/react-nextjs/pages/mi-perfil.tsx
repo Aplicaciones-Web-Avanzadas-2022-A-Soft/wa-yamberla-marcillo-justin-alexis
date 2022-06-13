@@ -37,6 +37,8 @@ const MiPerfilPage = () => {
     const desplegarMensaje = () => {
         if (estaLogeado) {
             return LoginHome({
+                color: 'black',
+                backgroundColor: 'orange',
                 propiedadesImagen: {
                     width: 400,
                     height: 200,
@@ -81,7 +83,8 @@ const MiPerfilPage = () => {
                         height: 150,
                         urlImagen: 'https://i.ytimg.com/vi/euXlgrP5QiE/maxresdefault.jpg'
                         }
-                    }></LoginHome>:
+                    } color = {'green'} backgroundColor = {'black'}
+                    ></LoginHome>:
                     <BienvenidaHome></BienvenidaHome>
                 }
             </div>
