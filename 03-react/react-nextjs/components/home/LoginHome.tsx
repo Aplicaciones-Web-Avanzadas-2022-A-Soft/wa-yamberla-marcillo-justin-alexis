@@ -1,4 +1,22 @@
 import styles from './login-home.module.css'
+import styled from '@emotion/styled';
+
+//styled components
+const Titulo = styled.h1`
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: orange;
+`
+const TituloRojo = styled.h1`
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: red;
+`
+const Subtitulo = styled.h2`
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: green;
+`
 
 interface LoginProperties{
     color: string;
@@ -30,6 +48,10 @@ const LoginHome = (props: LoginProperties) => {
     // };
     return (
         <>
+            <Titulo>Hola Titulo</Titulo>
+            <TituloRojo>Hola Titulo Rojo</TituloRojo>
+            <Subtitulo>Hola Subtitulo</Subtitulo>
+
             <h1 style={ misEstilos }> Login Home</h1>
             <h2 className={styles.azul}>AZUL</h2>
             <h2 className={styles.rojo}>ROJO</h2>
