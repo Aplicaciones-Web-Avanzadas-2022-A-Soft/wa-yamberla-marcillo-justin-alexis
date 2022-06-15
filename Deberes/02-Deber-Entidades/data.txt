@@ -1,1 +1,1 @@
-{"nombre":"John Katzenbach","edad":71,"hijos":null,"casado":true,"libros":{}}
+{"nombre":"John Katzenbach","edad":71,"hijos":null,"casado":true,"libros":[{"id":"3","titulo":"libro 3","fechaPublicacion":"hoy","numeroPaginas":"111","genero":"nose"}]}

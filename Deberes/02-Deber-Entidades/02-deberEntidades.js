@@ -77,6 +77,11 @@ const leerLibro = () =>{
 const actualizarLibro = () =>{
     inquirer.prompt([
         {
+            name: 'indice',
+            type: 'input',
+            message: 'Ingrese el indice del libro a editar: '
+        },
+        {
             name: 'id',
             type: 'input',
             message: 'Ingrese el nuevo id: '
@@ -110,7 +115,9 @@ const actualizarLibro = () =>{
         libro.fechaPublicacion = respuestas.fechaPublicacion
         libro.numeroPaginas = respuestas.numPaginas
         libro.genero = respuestas.genero
-        datosAutor.libros = libro
+        //datosAutor.libros = libro
+
+        datosAutor.libros.splice(respuestas.indice, 1, libro)
 
         let objetoGuardado = JSON.stringify(datosAutor)
         fs.writeFile('./data.txt', objetoGuardado, (error) =>{
@@ -126,16 +133,28 @@ const actualizarLibro = () =>{
 
 //------------------------- DELETE -------------------------------
 const eliminarLibro = () =>{
-    libro = {}
-    autor.libros = libro
-    let objetoGuardado = JSON.stringify(autor)
-    fs.writeFile('./data.txt', objetoGuardado, (error) =>{
-        if(error){
-            console.log('Error')
-        }else{
-            console.log('Libro eliminado correctamente')
-        }
-    })
+    inquirer.prompt([
+        {
+            name: 'indice',
+            type: 'input',
+            message: 'Ingrese el indice del libro a eliminar: '
+        },
+    ]).then((respuestas) => {
+        let datosArchivo = fs.readFileSync('./data.txt')
+        let datosAutor = JSON.parse(datosArchivo)
+
+        datosAutor.libros.splice(respuestas.indice, 1)
+
+        let objetoGuardado = JSON.stringify(datosAutor)
+        fs.writeFile('./data.txt', objetoGuardado, (error) =>{
+            if(error){
+                console.log('Error')
+            }else{
+                console.log('Libro eliminado correctamente')
+            }
+        })
+        console.log(datosAutor)
+    });
 }
 
 //------------------------ MENU -----------------------------
