@@ -47,23 +47,25 @@ const crearLibro = () =>{
             message: 'Ingrese el género: '
         },
     ]).then((respuestas) => {
+        let datosArchivo = fs.readFileSync('./data.txt')
+        let datosAutor = JSON.parse(datosArchivo)
+
         libro.id = respuestas.id
         libro.titulo = respuestas.titulo
         libro.fechaPublicacion = respuestas.fechaPublicacion
         libro.numeroPaginas = respuestas.numPaginas
         libro.genero = respuestas.genero
 
-        autor.libros.push(libro)
-        let objetoGuardado = JSON.stringify(autor)
+        datosAutor.libros.push(libro)
+        let objetoGuardado = JSON.stringify(datosAutor)
         fs.writeFile('./data.txt', objetoGuardado, (error) =>{
             if(error){
                 console.log('Error')
             }else{
                 console.log('Archivo generado correctamente')
             }
-        })
+        });
 
-        console.log(autor)
     });
 }
 
@@ -115,7 +117,6 @@ const actualizarLibro = () =>{
         libro.fechaPublicacion = respuestas.fechaPublicacion
         libro.numeroPaginas = respuestas.numPaginas
         libro.genero = respuestas.genero
-        //datosAutor.libros = libro
 
         datosAutor.libros.splice(respuestas.indice, 1, libro)
 
@@ -196,13 +197,14 @@ const menuSalida = () =>{
         {
             name: 'opcionSalida',
             type: 'confirm',
-            message: 'Desea realizar alguna acción más?'
+            message: 'Desea agregar más libros?'
         },
     ]).then((respuesta) =>{
         if(respuesta.opcionSalida){
-            menu();
+            crearLibro();
         }else {
-            console.log('ADIOS');
+            menu()
+            console.log(autor)
         }
     });
 }*/
