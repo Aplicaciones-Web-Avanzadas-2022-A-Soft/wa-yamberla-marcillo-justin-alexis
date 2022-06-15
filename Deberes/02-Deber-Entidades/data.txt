@@ -1,1 +1,1 @@
-{"nombre":"John Katzenbach","edad":71,"hijos":null,"casado":true,"libros":[{"id":"1","titulo":"libro","fechaPublicacion":"nose","numeroPaginas":"nose","genero":"nose"}]}
+{"nombre":"John Katzenbach","edad":71,"hijos":null,"casado":true,"libros":[{"id":"lib2","titulo":"libro 2","fechaPublicacion":"junio 2022","numeroPaginas":"500","genero":"comedia"}]}
