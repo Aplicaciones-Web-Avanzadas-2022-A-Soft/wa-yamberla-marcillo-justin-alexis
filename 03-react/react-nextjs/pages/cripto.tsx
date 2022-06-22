@@ -9,12 +9,17 @@ const ImagenPrincipal = styled.img`
 
 const Cripto = () =>(
     <Layout title={"Cripto | Next.js + TypeScript Example"}>
-        <ImagenPrincipal src={'https://besthqwallpapers.com/Uploads/24-3-2018/45509/thumb2-bitcoin-smartphone-sign-crypto-currency-gold-coins.jpg'}
-                         alt={'Texto alternativo criptomoneda'}
-        >
-        </ImagenPrincipal>
-
-        <h1>Hola desde cripto</h1>
+        <div>
+                <h1>Cripto Calculator</h1>
+                <ImagenPrincipal
+                    className="rounded"
+                    src={'https://besthqwallpapers.com/Uploads/24-3-2018/45509/thumb2-bitcoin-smartphone-sign-crypto-currency-gold-coins.jpg'}
+                    alt={'Texto alternativo criptomoneda'}
+                >
+                </ImagenPrincipal>
+        </div>
+        <h2>Selección</h2>
+            <p>Selecciona tu moneda</p>
 
         <CriptoFormulario></CriptoFormulario>
 
