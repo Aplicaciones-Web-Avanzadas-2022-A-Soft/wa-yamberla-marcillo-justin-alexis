@@ -4,18 +4,18 @@ import {MonedasInterface} from "../constantes/monedas";
 const useSelectMoneda = (label: string, opciones: MonedasInterface[]) => {
     // Usamos Hooks React (userState)
     // const [state, setState] = useState('VALOR')
-    // const [valorEjemplo, setValorEjemplo] = useState('Christian Moran')
+    // const [valorEjemplo, setValorEjemplo] = useState('Justin Yamberla')
     const [valorMoneda, setValorMoneda] = useState('');
     const generarSelectMonedas = () => {
         return opciones.map(
             (moneda) => (
-                <option key={moneda.id} id={moneda.id} value={moneda.id}> {moneda.nombre}</option>
+                <option key={moneda.id} id={moneda.id} value={moneda.id}> {moneda.nombre} </option>
             )
         )
     }
     const SelectMonedas = () => (
         <>
-            <label className="form-label" htmlFor={label}>{label}</label>
+            <label className="form-label" htmlFor={label}> {label} </label>
             <select className="form-select"
                     name={label}
                     id={label}
@@ -39,7 +39,7 @@ const useSelectMoneda = (label: string, opciones: MonedasInterface[]) => {
             {/*<button onClick={*/}
             {/*    (event)=>{*/}
             {/*        event.preventDefault();*/}
-            {/*        setValorEjemplo('Christian '+new Date().getTime());*/}
+            {/*        setValorEjemplo('Justin '+new Date().getTime());*/}
             {/*    }*/}
             {/*}*/}
             {/*>Cambiar ejemplo</button>*/}

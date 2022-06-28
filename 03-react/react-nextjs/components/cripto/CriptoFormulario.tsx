@@ -3,18 +3,20 @@ import useSelectMoneda from "../hooks/useSelectMoneda";
 import {useEffect, useState} from "react";
 
 export const CryptoFormulario = ({setMonedas}) => {
-
+    //CONSTANTES de monedas: useState
     const [monedasArreglo, setMonedasArreglo] = useState(
         // MONEDAS.map((a)=>a),
         // Object.assign([], MONEDAS)
         [...MONEDAS]
     );
     const [criptoMonedasArreglo, setCriptoMonedasArreglo] = useState([]);
+
     // Definir selects
-    const [valorMoneda, SelectMonedaComponente] = useSelectMoneda('Seleccionar moneda', monedasArreglo)
-    const [valorCriptoMoneda, SelectCriptoMonedaComponente] = useSelectMoneda('Seleccionar criptomoneda', criptoMonedasArreglo)
-    // Ayuda a reaccionar a cambios, debido a que alguna variable escucha cambios
-    // Inicializar variables dentro del componente
+    const [valorMoneda, SelectMonedaComponente] = useSelectMoneda('Seleccionar moneda:', monedasArreglo)
+    const [valorCriptoMoneda, SelectCriptoMonedaComponente] = useSelectMoneda('Seleccionar criptomoneda:', criptoMonedasArreglo)
+
+    // useEffect: Ayuda a reaccionar a cambios, debido a que alguna variable escucha cambios
+    // useEffect: Inicializar variables dentro del componente
     useEffect(
         () => {
             // eventos cuando cambie variable
@@ -90,7 +92,7 @@ export const CryptoFormulario = ({setMonedas}) => {
                 <SelectMonedaComponente/>
                 <SelectCriptoMonedaComponente/>
                 <br/>
-                <button className={'btn btn-primary w-100'} type="submit"> Consultar</button>
+                <button className={'btn btn-primary w-100'} type="submit"> Consultar </button>
             </form>
         </>
     )
