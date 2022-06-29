@@ -82,10 +82,9 @@ async function crearAutor() {
             autor.casado = respuestas.casado
 
             datosArrayAutores.push(autor)
+            console.log("¡Autor creado!")
 
             escribirArchivo(pathArchivo, datosArrayAutores)
-
-            console.log(datosArrayAutores)
         });
     }catch (e){
         console.log("Error", e)
@@ -94,93 +93,105 @@ async function crearAutor() {
 
 //-------------------------- READ AUTOR -------------------------------
 const leerAutor = () =>{
-    let datosArrayAutor = leerArchivo(pathArchivo)
-    console.log(datosArrayAutor)
+    let datosArrayAutores = leerArchivo(pathArchivo)
+    if(datosArrayAutores.length === 0){
+        console.log("!No existen datos! Primero cree un autor. Saliendo...")
+    }else{
+        console.log(datosArrayAutores)
+    }
 }
 
 //-------------------------- UPDATE AUTOR -------------------------------
 async function actualizarAutor() {
-    try {
-        inquirer.prompt([
-            {
-                name: 'idEditar',
-                type: 'input',
-                message: 'Ingrese el id del autor a editar: '
-            },
-            {
-                name: 'nombre',
-                type: 'input',
-                message: 'Ingrese el nuevo nombre: '
-            },
-            {
-                name: 'direccion',
-                type: 'input',
-                message: 'Ingrese la nueva direccion: '
-            },
-            {
-                name: 'edad',
-                type: 'number',
-                message: 'Ingrese la nueva edad: '
-            },
-            {
-                name: 'hijos',
-                type: 'input',
-                message: 'Ingrese el nuevo número de hijos: '
-            },
-            {
-                name: 'casado',
-                type: 'confirm',
-                message: '¿Es casado?: '
-            },
-        ]).then((respuestas) => {
-            let datosArrayAutores = leerArchivo(pathArchivo)
+    let datosArrayAutores = leerArchivo(pathArchivo)
+    if(datosArrayAutores.length === 0){
+        console.log("!No existen datos! Primero cree un autor. Saliendo...")
+    }else{
+        try {
+            inquirer.prompt([
+                {
+                    name: 'idEditar',
+                    type: 'input',
+                    message: 'Ingrese el id del autor a editar: '
+                },
+                {
+                    name: 'nombre',
+                    type: 'input',
+                    message: 'Ingrese el nuevo nombre: '
+                },
+                {
+                    name: 'direccion',
+                    type: 'input',
+                    message: 'Ingrese la nueva direccion: '
+                },
+                {
+                    name: 'edad',
+                    type: 'number',
+                    message: 'Ingrese la nueva edad: '
+                },
+                {
+                    name: 'hijos',
+                    type: 'input',
+                    message: 'Ingrese el nuevo número de hijos: '
+                },
+                {
+                    name: 'casado',
+                    type: 'confirm',
+                    message: '¿Es casado?: '
+                },
+            ]).then((respuestas) => {
+                let datosArrayAutores = leerArchivo(pathArchivo)
 
-            autor.id = respuestas.idEditar
-            autor.nombre = respuestas.nombre
-            autor.direccion = respuestas.direccion
-            autor.edad = respuestas.edad
-            autor.hijos = respuestas.hijos
-            autor.casado = respuestas.casado
+                autor.id = respuestas.idEditar
+                autor.nombre = respuestas.nombre
+                autor.direccion = respuestas.direccion
+                autor.edad = respuestas.edad
+                autor.hijos = respuestas.hijos
+                autor.casado = respuestas.casado
 
-            let indice = datosArrayAutores.findIndex(elemento =>{
-                return elemento.id === respuestas.idEditar
-            })
+                let indice = datosArrayAutores.findIndex(elemento =>{
+                    return elemento.id === respuestas.idEditar
+                })
 
-            datosArrayAutores.splice(indice, 1, autor)
+                datosArrayAutores.splice(indice, 1, autor)
+                console.log("¡Autor actualizado!")
 
-            escribirArchivo(pathArchivo, datosArrayAutores)
-
-            console.log(datosArrayAutores)
-        });
-    }catch (e) {
-        console.log("Error", e)
+                escribirArchivo(pathArchivo, datosArrayAutores)
+            });
+        }catch (e) {
+            console.log("Error", e)
+        }
     }
 }
 
 //-------------------------- DELETE AUTOR -------------------------------
 async function eliminarAutor() {
-    try {
-        inquirer.prompt([
-            {
-                name: 'idEliminar',
-                type: 'input',
-                message: 'Ingrese el id del autor a eliminar: '
-            },
-        ]).then((respuestas) => {
-            let datosArrayAutores = leerArchivo(pathArchivo)
+    let datosArrayAutores = leerArchivo(pathArchivo)
+    if(datosArrayAutores.length === 0){
+        console.log("!No existen datos! Primero cree un autor. Saliendo...")
+    }else{
+        try {
+            inquirer.prompt([
+                {
+                    name: 'idEliminar',
+                    type: 'input',
+                    message: 'Ingrese el id del autor a eliminar: '
+                },
+            ]).then((respuestas) => {
+                let datosArrayAutores = leerArchivo(pathArchivo)
 
-            let indice = datosArrayAutores.findIndex(elemento =>{
-                return elemento.id === respuestas.idEliminar
-            })
+                let indice = datosArrayAutores.findIndex(elemento =>{
+                    return elemento.id === respuestas.idEliminar
+                })
 
-            datosArrayAutores.splice(indice, 1)
+                datosArrayAutores.splice(indice, 1)
+                console.log("¡Autor eliminado!")
 
-            escribirArchivo(pathArchivo, datosArrayAutores)
-
-            console.log(datosArrayAutores)
-        });
-    }catch (e) {
-        console.log("Error", e)
+                escribirArchivo(pathArchivo, datosArrayAutores)
+            });
+        }catch (e) {
+            console.log("Error", e)
+        }
     }
 }
 
@@ -204,17 +215,44 @@ async function crearLibro() {
                 if (indice === -1){
                     console.log("No existe ese Autor.")
                 }else{
+                    console.log(datosArrayAutores[indice])
                     inquirer.prompt([
                         {
                             name: 'id',
                             type: 'input',
                             message: 'Ingrese el id del libro: '
                         },
+                        {
+                            name: 'titulo',
+                            type: 'input',
+                            message: 'Ingrese el titulo del libro: '
+                        },
+                        {
+                            name: 'numPaginas',
+                            type: 'number',
+                            message: 'Ingrese el número de páginas del libro: '
+                        },
+                        {
+                            name: 'genero',
+                            type: 'input',
+                            message: 'Ingrese el género del libro: '
+                        },
+                        {
+                            name: 'fechaPublicacion',
+                            type: 'input',
+                            message: 'Ingrese la fecha de publicación del libro: '
+                        },
                     ]).then((entradas) =>{
                         libro.id = entradas.id
+                        libro.titulo = entradas.titulo
+                        libro.numeroPaginas = entradas.numPaginas
+                        libro.genero = entradas.genero
+                        libro.fechaPublicacion = entradas.fechaPublicacion
+
                         datosArrayAutores[indice].libros.push(libro)
+                        console.log(datosArrayAutores[indice])
+                        console.log("¡Libro creado!")
                         escribirArchivo(pathArchivo, datosArrayAutores)
-                        console.log(datosArrayAutores)
                     })
                 }
             });
@@ -227,7 +265,7 @@ async function crearLibro() {
 async function leerLibro() {
     let datosArrayAutores = leerArchivo(pathArchivo)
     if(datosArrayAutores.length === 0){
-        console.log("No existen datos. ¡Primero cree un autor y luego un libro! Saliendo...")
+        console.log("!No existen datos! Primero cree un autor y luego un libro. Saliendo...")
     }else{
         try {
             await inquirer.prompt([
@@ -241,9 +279,9 @@ async function leerLibro() {
                     return elemento.id === respuestas.idAutor
                 })
                 if (indice === -1){
-                    console.log("No existe ese Autor.")
+                    console.log("¡No existe ese Autor!")
                 }else{
-                    console.log(datosArrayAutores[indice].libros)
+                    console.log("\tLIBROS: \n", datosArrayAutores[indice])
                 }
             });
         }catch (e) {
@@ -270,24 +308,59 @@ async function actualizarLibro() {
                     return elemento.id === respuestas.idAutor
                 })
                 if (indice === -1){
-                    console.log("No existe ese Autor.")
+                    console.log("¡No existe ese Autor!")
                 }else{
+                    console.log(datosArrayAutores[indice])
                     inquirer.prompt([
                         {
                             name: 'idLibro',
                             type: 'input',
-                            message: 'Ingrese el id del libro: '
+                            message: 'Ingrese el id del libro a actualizar: '
                         },
                     ]).then((entradas) =>{
                         let indiceLibro = datosArrayAutores[indice].libros.findIndex(elemento =>{
                             return elemento.id === entradas.idLibro
                         })
                         if (indiceLibro === -1){
-                            console.log("No existe ese Libro.")
+                            console.log("¡No existe ese Libro!")
                         }else {
-                            libro.id = entradas.idLibro
-                            datosArrayAutores[indice].libros.splice(indiceLibro, 1, libro)
-                            escribirArchivo(pathArchivo, datosArrayAutores)
+                            inquirer.prompt([
+                                {
+                                    name: 'id',
+                                    type: 'input',
+                                    message: 'Ingrese el nuevo id del libro: '
+                                },
+                                {
+                                    name: 'titulo',
+                                    type: 'input',
+                                    message: 'Ingrese el nuevo título del libro: '
+                                },
+                                {
+                                    name: 'numPaginas',
+                                    type: 'number',
+                                    message: 'Ingrese el nuevo número de páginas del libro: '
+                                },
+                                {
+                                    name: 'genero',
+                                    type: 'input',
+                                    message: 'Ingrese el nuevo género del libro: '
+                                },
+                                {
+                                    name: 'fechaPublicacion',
+                                    type: 'input',
+                                    message: 'Ingrese la nueva fecha de publicación del libro: '
+                                },
+                            ]).then((inputs) =>{
+                                libro.id = inputs.id
+                                libro.titulo = inputs.titulo
+                                libro.numeroPaginas = inputs.numPaginas
+                                libro.genero = inputs.genero
+                                libro.fechaPublicacion = inputs.fechaPublicacion
+
+                                datosArrayAutores[indice].libros.splice(indiceLibro, 1, libro)
+                                console.log("¡Libro actualizado!")
+                                escribirArchivo(pathArchivo, datosArrayAutores)
+                            })
                         }
                     })
                 }
@@ -316,19 +389,26 @@ async function eliminarLibro() {
                     return elemento.id === respuestas.idAutor
                 })
                 if (indice === -1){
-                    console.log("No existe ese Autor.")
+                    console.log("¡No existe ese Autor!")
                 }else{
+                    console.log(datosArrayAutores[indice])
                     inquirer.prompt([
                         {
-                            name: 'id',
+                            name: 'idLibro',
                             type: 'input',
                             message: 'Ingrese el id del libro a eliminar: '
                         },
                     ]).then((entradas) =>{
-                        libro.id = entradas.id
-                        datosArrayAutores[indice].libros.splice(indice, 1)
-                        escribirArchivo(pathArchivo, datosArrayAutores)
-                        console.log(datosArrayAutores)
+                        let indiceLibro = datosArrayAutores[indice].libros.findIndex(elemento =>{
+                            return elemento.id === entradas.idLibro
+                        })
+                        if (indiceLibro === -1){
+                            console.log("¡No existe ese Libro!")
+                        }else {
+                            datosArrayAutores[indice].libros.splice(indiceLibro, 1)
+                            console.log("¡Libro eliminado!")
+                            escribirArchivo(pathArchivo, datosArrayAutores)
+                        }
                     })
                 }
             });
@@ -431,5 +511,4 @@ async function main() {
         }
     });
 }
-
 main()
