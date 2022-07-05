@@ -32,13 +32,16 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           </Link>{' '}
           |{' '}
           <Link href="/cripto">
-              <a>CRIPTO</a>
+              <a>CRIPTO Transformador</a>
           </Link>{' '}
           |{' '}
-        <Link href="/users">
-          <a>Users List</a>
+            <Link href="/users">
+              <a>Users List</a>
+            </Link>{' '}
+            | <a href="/api/users">Users API</a>
+          | {' '} <Link href="/estudiantes">
+          <a>Estudiantes</a>
         </Link>{' '}
-        | <a href="/api/users">Users API</a>
       </nav>
     </header>
       <div className="container">
