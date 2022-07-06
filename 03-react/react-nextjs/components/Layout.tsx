@@ -27,21 +27,30 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           <a>About</a>
         </Link>{' '}
         |{' '}
-          <Link href="/mi-perfil">
-              <a>Mi Perfil</a>
-          </Link>{' '}
-          |{' '}
-          <Link href="/cripto">
-              <a>CRIPTO Transformador</a>
-          </Link>{' '}
-          |{' '}
-            <Link href="/users">
-              <a>Users List</a>
-            </Link>{' '}
-            | <a href="/api/users">Users API</a>
-          | {' '} <Link href="/estudiantes">
+        <Link href="/mi-perfil">
+          <a>Mi Perfil</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/cripto">
+          <a>CRIPTO Transformador</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/users">
+          <a>Users List</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/api/users">
+          <a>Users API</a>
+        </Link>{' '}
+        |{' '}
+        <Link href="/estudiantes">
           <a>Estudiantes</a>
         </Link>{' '}
+        |{' '}
+        {' '} <Link href="/formulario">
+        <a>Formulario</a>
+        </Link>{' '}
+        |{' '}
       </nav>
     </header>
       <div className="container">
