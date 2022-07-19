@@ -1,5 +1,6 @@
-/*styles/global.css*/
-
 body{
-    background-color: beige;
+    background-color: white;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
