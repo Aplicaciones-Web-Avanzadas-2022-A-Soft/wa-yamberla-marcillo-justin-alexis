@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nombre": "Justin Yamberla",
+        "direccion": "Otavalo",
+        "edad": 22,
+        "hijos": 0,
+        "libros": [
+            {
+                "id": 1,
+                "titulo": "Libro 1",
+                "numeroPaginas": 200,
+                "genero": "Comedia",
+                "fechaPublicacion": "Julio 2020"
+            }
+        ]
+    },
+    {
+        "nombre": "Alexis Marcillo",
+        "direccion": "Quito",
+        "edad": 30,
+        "hijos": 2,
+        "id": 2,
+        "libros": [
+            {
+                "id": 1,
+                "titulo": "Libro 1",
+                "numeroPaginas": 200,
+                "genero": "Terror",
+                "fechaPublicacion": "Junio 2020"
+            }
+        ]
+    }
+]

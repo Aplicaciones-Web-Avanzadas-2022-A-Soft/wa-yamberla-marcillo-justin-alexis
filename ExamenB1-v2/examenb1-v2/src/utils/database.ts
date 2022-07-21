@@ -1,13 +1,17 @@
-import { Pool } from 'pg';
+import {Pool} from 'pg';
 
-export let conexion: any;
+let conn: any
 
-if (!conexion){
-    conexion = new Pool ({
-        user: 'postgres',
-        host: 'localhost',
-        database: 'dbexamen_appweb',
-        password: '12345',
-        port: 5432
-    });
+if (!conn) {
+    conn = new Pool(
+        {
+            user: 'postgres',
+            password: '12345',
+            host: 'localhost',
+            port: 5432,
+            database: 'Digimons'
+        }
+    );
 }
+
+export {conn};

@@ -1,5 +1,5 @@
 {
-  "name": "examenb1-v2",
+  "name": "autor-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.9.0",
+    "@mui/material": "^5.9.1",
     "@types/pg": "^8.6.5",
     "next": "12.2.2",
     "pg": "^8.7.3",
