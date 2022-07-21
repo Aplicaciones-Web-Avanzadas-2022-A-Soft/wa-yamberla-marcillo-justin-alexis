@@ -1,5 +1,5 @@
-# next-js-10-crud-example
+# Examen Primer Bimestre 1
 
-Next.js 10 - CRUD Example with React Hook Form
+Next.js -  React Hook Form
 
-For documentation and live demo go to https://jasonwatmore.com/post/2021/04/20/next-js-10-crud-example-with-react-hook-form
+Referencias: https://jasonwatmore.com/post/2021/04/20/next-js-10-crud-example-with-react-hook-form

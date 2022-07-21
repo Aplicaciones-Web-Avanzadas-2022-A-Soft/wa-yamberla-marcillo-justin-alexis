@@ -30,5 +30,12 @@
                 "fechaPublicacion": "Junio 2020"
             }
         ]
+    },
+    {
+        "nombre": "Juan Perez",
+        "direccion": "Ibarra",
+        "edad": 25,
+        "hijos": 0,
+        "id": 3
     }
 ]
