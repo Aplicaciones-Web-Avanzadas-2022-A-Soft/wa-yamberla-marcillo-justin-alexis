@@ -30,33 +30,37 @@ const Layout = ({children, title = 'This is the default title'}: Props) => (
       </Head>
       <header>
         <nav>
-          <Link href="/">
-            <a>Home</a>
-          </Link>{' '}
-          |{' '}
-          <Link href="/about">
-            <a>About</a>
-          </Link>{' '}
-          |{' '}
-          <Link href="/mi-perfil">
-            <a>Mi perfil</a>
-          </Link>{' '}
-          |{' '}
-          <Link href="/cripto">
-            <a>Cripto Transformador</a>
-          </Link>{' '}
-          |{' '}
-          <Link href="/users">
-            <a>Users List</a>
-          </Link>{' '}
-          | <a href="/api/users">Users API</a>
-          | {' '}
-            <Link href="/estudiantes">
-          <a>Estudiantes</a>
-        </Link>{' '}
-          | {' '} <Link href="/formulario">
-          <a>Formulario</a>
-        </Link>{' '}
+            <Link href="/">
+                <a>Home</a>
+            </Link>{' '}
+            |{' '}
+            <Link href="/about">
+                <a>About</a>
+            </Link>{' '}
+            |{' '}
+            <Link href="/mi-perfil">
+                <a>Mi perfil</a>
+            </Link>{' '}
+            |{' '}
+            <Link href="/cripto">
+                <a>Cripto Transformador</a>
+            </Link>{' '}
+            |{' '}
+            <Link href="/users">
+                <a>Users List</a>
+            </Link>{' '}
+            | <a href="/api/users">Users API</a>
+            | {' '} <Link href="/estudiantes">
+            <a>Estudiantes</a>
+            </Link>{' '}
+            | {' '} <Link href="/formulario">
+            <a>Formulario</a>
+            </Link>{' '}
+            |{' '}
+            <Link href="/websocket">
+                <a>Websockets</a>
+            </Link>{' '}
+            |{' '}
         </nav>
       </header>
       <div className="container">
