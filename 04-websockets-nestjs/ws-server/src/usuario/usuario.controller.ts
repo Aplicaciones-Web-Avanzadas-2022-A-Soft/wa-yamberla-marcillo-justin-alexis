@@ -1,5 +1,19 @@
-import {Controller, Get, HttpCode, HttpStatus, Param, Query} from "@nestjs/common";
+import {
+    BadRequestException,
+    Body,
+    Controller,
+    Delete,
+    Get,
+    HttpCode,
+    HttpStatus,
+    Param,
+    Post,
+    Put,
+    Query
+} from "@nestjs/common";
 import {UsuarioService} from "./usuario.service";
+import {UsuarioCreateDto} from "./dto/usuario-create.dto";
+import {validate} from "class-validator";
 
 @Controller('usuario')
 export class UsuarioController {
@@ -35,5 +49,46 @@ export class UsuarioController {
         @Param() params
     ){
         return this.usuarioService.findOneById(+params.id);
+    }
+
+    @Post("/") // POST /usuario
+    @HttpCode(201)
+    async create(
+        @Query() queryParams,
+        @Param() params,
+        @Body() bodyParams
+    ){
+        const nuevoRegistro = new UsuarioCreateDto(); //creamos dto
+        nuevoRegistro.rol = bodyParams.rol;
+        nuevoRegistro.nombres = bodyParams.nombres;
+        nuevoRegistro.apellidos= bodyParams.apellidos;
+
+        const errores = await validate(nuevoRegistro); //validamos
+        if (errores.length > 0){
+            console.error({errores});
+            throw new BadRequestException({mensaje: 'Envió mal los datos'})
+        }
+        //creamos
+        return this.usuarioService.create(bodyParams);
+    }
+
+    @Put("/:id") // PUT /usuario/:id
+    @HttpCode(200)
+    update(
+        @Query() queryParams,
+        @Param() params,
+        @Body() bodyParams
+    ){
+        return this.usuarioService.update(bodyParams, +params.id);
+    }
+
+    @Delete("/:id") // DELETE /usuario/:id
+    @HttpCode(200)
+    delete(
+        @Query() queryParams,
+        @Param() params,
+        @Body() bodyParams
+    ){
+        return this.usuarioService.delete(+params.id);
     }
 }

@@ -2,6 +2,7 @@ import {Module} from "@nestjs/common";
 import {NotaService} from "./nota.service";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {NotaEntity} from "./nota.entity";
+import {NotaController} from "./nota.controller";
 
 // Modulo Nota
 @Module({
@@ -12,7 +13,8 @@ import {NotaEntity} from "./nota.entity";
         )
     ],
     providers: [NotaService],
-    exports: [],
+    exports: [NotaService],
+    controllers:[NotaController]
 })
 export class NotaModule{
 
