@@ -11,6 +11,7 @@ import {Server, Socket} from 'socket.io';
 )
 
 export class EventosGateway{
+
     @SubscribeMessage('hola')
     devolverHola(
         @MessageBody()
@@ -59,4 +60,7 @@ export class EventosGateway{
             .emit('escucharEventoMensajeSala', mensajeSala)
         return{message: 'ok'}
     }
+
+    //Eventos de Deber 03: Web sockets
+
 }
