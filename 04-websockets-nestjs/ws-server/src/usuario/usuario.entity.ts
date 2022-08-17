@@ -7,20 +7,20 @@ export class UsuarioEntity {
     id: number;
 
     @Column({
-        name: 'nombre',
+        name: 'user_nombres',
         type: 'varchar',
         length: 60,
         nullable: false,
     })
-    nombre: string;
+    nombres: string;
 
     @Column({
-        name: 'apellido',
+        name: 'user_apellidos',
         type: 'varchar',
         length: 60,
         nullable: false,
     })
-    apellido: string;
+    apellidos: string;
 
     @Column({
         name: 'user_rol',
@@ -35,7 +35,7 @@ export class UsuarioEntity {
     @OneToMany( //Uno a muchos del papá al hijo
         () => NotaEntity, //Entidad relacionada
         (nota) => nota.usuario, //Campo relacionado
-        {cascade: true}
+        //{cascade: true}
     )
     notas: NotaEntity[]
 }

@@ -32,14 +32,14 @@ export class NotaEntity {
         name: 'user_comentario',
         type: 'varchar',
         length: 255,
-        nullable: false,
+        nullable: true,
     })
     comentario: string;
 
     @ManyToOne( //Uno a muchos del hijo al papá
         () => UsuarioEntity, //Entidad relacionada
         (user) => user.notas, //Campo relacionado
-        {onDelete: "CASCADE"} //Si se elimina el usuario, se elimina las// notas
+        //{onDelete: "CASCADE"} //Si se elimina el usuario, se elimina las// notas
     )
     usuario: UsuarioEntity | number;
 }

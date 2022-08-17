@@ -1,4 +1,4 @@
-import { IsNumber, IsOptional } from "class-validator";
+import {IsNumber, IsOptional, IsString} from "class-validator";
 
 export class NotaUpdateDto{
     @IsOptional()
@@ -14,7 +14,7 @@ export class NotaUpdateDto{
     notaExamenFinal: number;
 
     @IsOptional()
-    @IsNumber()
+    @IsString()
     comentario: string;
 
     @IsOptional()

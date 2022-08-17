@@ -69,7 +69,7 @@ export class UsuarioController {
             throw new BadRequestException({mensaje: 'Envió mal los datos'})
         }
         //creamos
-        return this.usuarioService.create(bodyParams);
+        return this.usuarioService.create(nuevoRegistro);
     }
 
     @Put("/:id") // PUT /usuario/:id

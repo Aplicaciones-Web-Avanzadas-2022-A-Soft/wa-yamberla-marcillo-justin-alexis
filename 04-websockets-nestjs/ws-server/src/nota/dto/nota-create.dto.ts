@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber } from "class-validator";
+import {IsNotEmpty, IsNumber, IsOptional, IsString} from "class-validator";
 
 export class NotaCreateDto{
     @IsNotEmpty()
@@ -13,8 +13,8 @@ export class NotaCreateDto{
     @IsNumber()
     notaExamenFinal: number;
 
-    @IsNotEmpty()
-    @IsNumber()
+    @IsOptional()
+    @IsString()
     comentario: string;
 
     @IsNotEmpty()

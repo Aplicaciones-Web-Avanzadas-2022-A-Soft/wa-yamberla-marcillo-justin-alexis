@@ -14,6 +14,7 @@ import {
 import {NotaService} from "./nota.service";
 import {NotaCreateDto} from "./dto/nota-create.dto";
 import {validate} from "class-validator";
+import {NotaUpdateDto} from "./dto/nota-update.dto";
 
 @Controller('nota')
 export class NotaController {
@@ -51,7 +52,7 @@ export class NotaController {
         return this.notaService.findOneById(+params.id);
     }
 
-    @Post("/:id") // POST /nota
+    @Post("/") // POST /nota
     @HttpCode(201)
     async create(
         @Query() queryParams,
@@ -63,7 +64,7 @@ export class NotaController {
         nuevoRegistro.notaSegundoBimestre = bodyParams.notaSegundoBimestre;
         nuevoRegistro.notaExamenFinal= bodyParams.notaExamenFinal;
         nuevoRegistro.comentario= bodyParams.comentario;
-        nuevoRegistro.usuario= bodyParams.usuario;
+        nuevoRegistro.usuario= +bodyParams.usuario;
 
         const errores = await validate(nuevoRegistro); //validamos
         if (errores.length > 0){
@@ -71,17 +72,33 @@ export class NotaController {
             throw new BadRequestException({mensaje: 'Envió mal los datos'})
         }
         //creamos
-        return this.notaService.create(bodyParams);
+        return this.notaService.create(nuevoRegistro);
     }
 
     @Put("/:id") // PUT /nota/:id
     @HttpCode(200)
-    update(
+    async update(
         @Query() queryParams,
         @Param() params,
         @Body() bodyParams
     ){
-        return this.notaService.update(bodyParams, +params.id);
+        const registroEditar = new NotaUpdateDto(); // creamos dto
+        registroEditar.notaExamenFinal = bodyParams.notaExamenFinal;
+        registroEditar.notaPrimerBimestre = bodyParams.notaPrimerBimestre;
+        registroEditar.notaSegundoBimestre = bodyParams.notaSegundoBimestre;
+        registroEditar.usuario = bodyParams.usuario;
+        registroEditar.comentario = bodyParams.comentario;
+
+        const errores = await validate(registroEditar); // validamos
+        if(errores.length > 0){
+            console.error({errores});
+            throw new BadRequestException({mensaje:'Envio mal datos'});
+        }
+        // Creamos
+        return this.notaService.update(
+            bodyParams,
+            +params.id
+        );
     }
 
     @Delete("/:id") // DELETE /nota/:id
