@@ -2,16 +2,8 @@ import Layout from "./components/layout";
 import {Box, Button, ButtonGroup, Container, Typography} from "@mui/material";
 import React from 'react';
 import Link from '@mui/material/Link';
-import {
-    CarouselProvider,
-    Slider,
-    ButtonBack,
-    ButtonNext,
-    DotGroup,
-} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import CustomCardSlide from "./components/CustomCardSlide";
-import {Helmet} from "react-helmet";
+
 
 function Home() {
     return (
@@ -33,28 +25,28 @@ function Home() {
 
                     <Button
                         sx={{flexDirection: "column",}}
-                        onClick={() => window.open('/certificados')}
+                        onClick={() => window.open('/membresias')}
                     >
                         <Typography sx={{color: 'white'}}>Membresías</Typography>
                     </Button>
 
                     <Button
                         sx={{flexDirection: "column",}}
-                        onClick={() => window.open('https://registro.midena.gob.ec/ContactoCiudadano/?ruta=ContactoCiudadano')}
+                        onClick={() => window.open('/suplementos')}
                     >
                         <Typography sx={{color: 'white'}}>Suplementos</Typography>
                     </Button>
 
                     <Button
                         sx={{flexDirection: "column",}}
-                        onClick={() => window.open('/noticias')}
+                        onClick={() => window.open('/index')}
                     >
                         <Typography sx={{color: 'white'}}>Ayuda</Typography>
                     </Button>
 
                     <Button
                         sx={{flexDirection: "column", border:'solid 1px #cecece'}}
-                        onClick={() => window.open('https://mail.midena.gob.ec/zimbra/')}
+                        onClick={() => window.open('/login')}
 
                     >
                         <Typography sx={{color: 'white'}}>Login</Typography>
