@@ -1,13 +1,5 @@
 [
     {
-        "id": 1,
-        "id_autor": 1,
-        "titulo": "La divina comedia",
-        "numeroPaginas": 200,
-        "genero": "Comedia",
-        "fechaPublicacion": "Julio 2020"
-    },
-    {
         "id": 2,
         "id_autor": 1,
         "titulo": "Libro 2",
@@ -30,5 +22,13 @@
         "numeroPaginas": 200,
         "genero": "Comedia",
         "fechaPublicacion": "Julio 2020"
+    },
+    {
+        "id_autor": 1,
+        "titulo": "La divina comedia",
+        "numeroPaginas": 1000,
+        "genero": "Epico",
+        "fechaPublicacion": "Ayer",
+        "id": 5
     }
 ]
