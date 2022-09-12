@@ -9,9 +9,9 @@ function Header(){
                 onClick={()=>router.push('/')}
             >
                 <img
-                    src={'logoMinisterio.png'}
+                    src={''}
                     height={'150px'}
-                    alt={'Logo ministerio de defensa'}
+                    alt={''}
                     style={{
                         padding:'5px 5px 5px 12px',
                     }}
