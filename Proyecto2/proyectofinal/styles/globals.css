@@ -1,0 +1,15 @@
+html, body{
+    height:100%;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+}
+header{
+    background-color: #547050;
+    align-items: center;
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #547050;
+}
