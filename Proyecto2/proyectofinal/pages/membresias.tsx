@@ -1,5 +1,5 @@
 import Layout from "./components/layout";
-import {Box, Button, ButtonGroup, Container, Typography} from "@mui/material";
+import {Box, Button, ButtonGroup, Card, Container, Typography} from "@mui/material";
 import React from 'react';
 import Link from '@mui/material/Link';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -56,6 +56,7 @@ function Membresias() {
             </Box>
 
             <Box sx={{padding: '1em 1.5em 1em 1.5em'}}>
+                <Card>Soy una tarjeta</Card>
             </Box>
 
         </Layout>
